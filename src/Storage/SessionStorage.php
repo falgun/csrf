@@ -15,6 +15,13 @@ final class SessionStorage implements TokenStorageInterface
         $this->session = $session;
     }
 
+    public static function dirtyResolve(): self
+    {
+        $session = new Session;
+
+        return new static($session);
+    }
+
     public function get(string $key): string
     {
         return $this->session->get($key);

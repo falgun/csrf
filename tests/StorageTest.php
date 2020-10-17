@@ -27,4 +27,11 @@ final class StorageTest extends TestCase
 
         $this->assertFalse($storage->has('token'));
     }
+
+    public function testDirtyResolve()
+    {
+        $storage = SessionStorage::dirtyResolve();
+
+        $this->assertInstanceOf(SessionStorage::class, $storage);
+    }
 }
